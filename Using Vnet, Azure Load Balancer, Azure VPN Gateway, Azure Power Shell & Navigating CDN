@@ -1,0 +1,86 @@
+This is  a lab I have done from Cloud Academy and thus I was given a mail and password to login
+•	Steps I followed:
+I logged in using the credentials
+Lab -1 ( Navigating Vnet) :
+•	On the dashboard of the Azure Portal, click the portal menu > All resources:
+•	On the All Resources page, click calabs-vnet:
+•	In the Menu to the left, click Connected Devices:
+•	In the Menu to the left, click Subnets:
+•	Return to the Connected devices blade and click nic0:
+•	On the following blade, click caLabsVM0:
+In this Lab Step, you navigated to a VNet in the Azure Portal and learned about the fundamentals of VNets.
+Lab-2 ( Navigate Azure Load Balancer) :
+•	On the dashboard of the Azure Portal, click the portal menu > All resources:
+•	On the All resources modal, click caLabsLB:
+•	On the Overview blade, notice a couple of things:
+•	In the menu to the left, click Load balancing rules.
+•	On the Rules blade, click LBRule:
+•	At the top of the page, click caLabsLB - Load balancing rules to return to the menu:
+•	In the menu, click Backend pools:
+•	Click the arrow to the left of Backendpool1 to expand it:
+In this Lab Step, you navigated to an existing Azure Load balancer. You also learned about some of the fundamentals of load balancing in Azure, including what load balancing rules are, what backend pools are, and how load balancers direct traffic to one or more targets.
+Lab-3 ( Navigate Azure Application Gateway) :
+•	On the dashboard of the Azure Portal, click the portal menu > All resources:
+•	In the All resources blade, click  calabs-appGateway:
+•	In the menu to the left, click  Backend pools and then click  appGatewayBackendPool:
+•	Click Cancel:
+•	In the menu to the left, click Listeners:
+•	In the menu to the left, click  Rules:
+•	Notice that there's a single rule, rule1, which you saw a moment ago. Click it:
+•	 Click calabs-appGateway - Rules at the top of the page:
+•	At the top of the Rules blade, click + Request routing rule:
+In this Lab Step, you navigated to an Azure Application Gateway in the Azure Portal. You learned what an application gateway is and how it differs from a traditional load balancer. You also learned why companies might choose to use one, as well as how they are configured and how they handle traffic.
+Lab-4 ( Navigating Azure VPN Gateway) :
+•	On the dashboard of the Azure Portal, click the portal menu > All resources:
+•	On the All resources blade, click caLabsGateway:
+•	In the menu to the left, click  Connections:
+•	Notice there aren't currently any connections. Any connections here would mean that your gateway is currently connected to another gateway, such as the gateway of an on-premises network. At the top of the Connections blade, click  Add:
+•	 In the Add connection blade, change Connection type to  Site-to-site (IPsec):
+•	Click Choose a local network gateway and then Create new:
+In this Lab Step, you navigated to an Azure VPN gateway, which is a kind of Virtual Network Gateway. You learned what it does, and why you might choose to use one. You also learned how a VPN gateway handles traffic to and from a separate network.
+Lab-5  (Using Clou shell with Advanced settings to create a customized storage account ) :
+•	Click on the >_ Cloud Shell icon in the menu bar of the Azure Portal Dashboard:
+•	Select Bash for your shell experience:
+•	Click on Show advanced settings to configure the shell to use existing storage resources:
+Set the following values in the Cloud Shell storage configuration form, and then click Create storage:
+•	Subscription: Leave the default value
+•	Cloud Shell region: Choose the South Central US region (The Cloud Academy Lab environment created a storage account for you in this region.)
+•	Resource group: Choose Use existing. Select the resource group beginning with cal-
+•	Storage account: Choose Use existing. Select the only storage account available or the one beginning with cacloudshell if there are multiple ( A bug in Azure currently prevents selecting an existing storage account if your lab is deployed in West US. If you can't select Use existing then select Create new and copy the name of your lab's storage account from the storage account table and paste it in as the storage account value.)
+•	File share: Choose Create new. Enter cloudshell for the name of the file share
+•	Press create Storage
+•	Wait until you see the prompt ending with $ indicating your Cloud Shell is ready to use:
+In this Lab Step, you started a Cloud Shell from the Azure Portal. You configured the shell to use an existing storage account and created a new file share in the storage account to persist your cloud drive home directory.
+Lab-6(Using CDN and Azure Storage) :
+•	At the top-left of the Azure Portal, click the portal menu > All resources:
+•	In the All resources blade, click the Storage account beginning with storage:
+•	In the Storage account menu, under Blob service, click Azure CDN:
+•	Copy the endpoint of the CDN and paste it into a new browser tab:
+•	Use the Cloud Shell button you discovered in the previous Lab Step to open the Cloud Shell, if it's not already open:
+•	Type touch example.html into the terminal and press enter to create a file called example.html.
+•	Click   at the top of the Cloud Shell to open the Editor:
+•	Click example.html in the Files menu to open example.html.
+•	Type Hello from the Azure CDN! into the Editor on the right and press ctrl+s on Windows or Linux, or cmd+s on mac to save the file.
+•	Click the ... at the top-right of the editor and click Close editor:
+•	In the terminal, enter the following command and press enter:
+•	Copy code
+storage_account=$(az storage account list --query [0].name -o tsv)
+•	Enter echo $storage_account to confirm the command worked:
+•	In the terminal, enter the following commands and press enter:
+•	Copy code
+az storage container create --name calabscontainer --account-name $storage_account --public-access blob
+az storage blob upload --container-name calabscontainer --account-name $storage_account --name example --file example.html
+•	Click the X at the top-right of the Cloud Shell to close it.
+•	In the Storage account menu, under Blob service, click Containers:
+•	Click calabscontainer:
+•	Notice that the blob named example is there, which means it was successfully uploaded to the container. Click example:
+•	 In the resulting Blob blade, notice the URL field near the top. The URL corresponds to the URL of the blob in the storage account. Click the icon to the right of the URL to copy it:
+•	 Paste the URL into a new browser tab:
+•	Replace the URL domain with your CDN endpoint (preserving the /calabscontainer/example path):
+In this Lab Step, you learned how to navigate to a CDN using an Azure Storage account. You also learned what a CDN is and why it might be used. Finally, you learned how CDNs serve data efficiently around the world and where they get their data from.
+
+
+
+
+
+
