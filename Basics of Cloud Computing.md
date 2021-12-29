@@ -1,3 +1,5 @@
+Slide Link: https://docs.google.com/presentation/d/1AvKEXp_z0t01TeLgiOfiw7MaYP-D4wUX/edit?usp=sharing&ouid=110004043522756585999&rtpof=true&sd=true
+
 Blog: https://cloudacademy.com/blog/aws-shared-responsibility-model-security/
 AWS Certifications  :  https://aws.amazon.com/certification/
 
